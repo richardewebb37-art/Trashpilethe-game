@@ -1,0 +1,91 @@
+#pragma once
+
+#include <oboe/Oboe.h>
+#include <memory>
+#include <vector>
+#include <mutex>
+#include "AudioMixer.h"
+#include "SpatialAudio.h"
+#include "SoundManager.h"
+
+namespace trashapp {
+namespace audio {
+
+class AudioEngine {
+public:
+    static AudioEngine& getInstance();
+    
+    // Lifecycle
+    void initialize();
+    void start();
+    void stop();
+    void release();
+    void pause();
+    void resume();
+    
+    // Audio management
+    void loadSound(const char* filename, int soundId);
+    void playSound(int soundId, float volume = 1.0f, float pan = 0.0f);
+    void stopSound(int soundId);
+    void setMasterVolume(float volume);
+    
+    // Music
+    void loadMusic(const char* filename, int musicId);
+    void playMusic(int musicId, float volume = 0.6f, bool loop = true);
+    void stopMusic();
+    void setMusicVolume(float volume);
+    void setSfxVolume(float volume);
+    
+    // Spatial audio
+    void setListenerPosition(float x, float y, float z);
+    void playSound3D(int soundId, float x, float y, float z, float volume = 1.0f);
+    
+    // Effects
+    void enableReverb(bool enable);
+    void setReverbLevel(float level);
+    
+private:
+    AudioEngine();
+    ~AudioEngine();
+    AudioEngine(const AudioEngine&) = delete;
+    AudioEngine& operator=(const AudioEngine&) = delete;
+    
+    // Oboe stream management
+    std::unique_ptr<oboe::AudioStream> mAudioStream;
+    oboe::Result openStream();
+    void closeStream();
+    
+    // Audio callback
+    oboe::DataCallbackResult onAudioReady(
+        oboe::AudioStream* audioStream,
+        void* audioData,
+        int32_t numFrames
+    );
+    
+    static oboe::DataCallbackResult audioCallbackWrapper(
+        oboe::AudioStream* audioStream,
+        void* audioData,
+        int32_t numFrames,
+        void* userData
+    );
+    
+    // Audio processing
+    void processAudio(float* audioData, int32_t numFrames);
+    
+    // Components
+    std::unique_ptr<AudioMixer> mMixer;
+    std::unique_ptr<SpatialAudio> mSpatialAudio;
+    std::unique_ptr<SoundManager> mSoundManager;
+    
+    // State
+    bool mInitialized = false;
+    bool mPlaying = false;
+    bool mPaused = false;
+    float mMasterVolume = 1.0f;
+    float mMusicVolume = 0.6f;
+    float mSfxVolume = 0.9f;
+    std::mutex mMutex;
+};
+
+} // namespace audio
+} // namespace trashapp

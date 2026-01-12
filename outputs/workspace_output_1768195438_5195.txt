@@ -1,0 +1,2 @@
+191:        return pointsSystem.calculateAbilityCost(tier)
+198:        return pointsSystem.calculateSkillCost(tier)

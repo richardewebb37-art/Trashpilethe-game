@@ -1,0 +1,23 @@
+[clean-push 0e95d97] Complete skills and abilities integration: 107 items across 200 levels with full GCMS integration
+ Date: Mon Jan 12 03:43:07 2026 +0000
+ 25 files changed, 5376 insertions(+), 363 deletions(-)
+ create mode 100644 INTEGRATION_COMPLETE_SUMMARY.md
+ create mode 100644 SKILLS_ABILITIES_COMPLETE.md
+ create mode 100644 SKILLS_ABILITIES_INTEGRATION_SUMMARY.md
+ create mode 100644 app/src/main/java/com/trashapp/gcms/commands/AbilityCommand.kt
+ create mode 100644 app/src/main/java/com/trashapp/gcms/events/AbilityEvent.kt
+ create mode 100644 app/src/main/java/com/trashapp/gcms/handlers/AbilityCommandHandler.kt
+ create mode 100644 app/src/main/java/com/trashapp/gcms/progression/SkillAbilityData.kt
+ create mode 100644 outputs/workspace_output_1768186824_8888.txt
+ create mode 100644 outputs/workspace_output_1768186843_7042.txt
+ create mode 100644 outputs/workspace_output_1768187790_286.txt
+ create mode 100644 outputs/workspace_output_1768187795_7893.txt
+ create mode 100644 outputs/workspace_output_1768187811_5511.txt
+ create mode 100644 outputs/workspace_output_1768187816_8444.txt
+ create mode 100644 outputs/workspace_output_1768188479_8192.txt
+ create mode 100644 outputs/workspace_output_1768188483_150.txt
+ create mode 100644 outputs/workspace_output_1768188486_4999.txt
+ create mode 100644 outputs/workspace_output_1768189190_8312.txt
+ create mode 100644 outputs/workspace_output_1768189280_1502.txt
+ create mode 100644 outputs/workspace_output_1768189386_2922.txt
+ create mode 100644 summarized_conversations/original_conversation_1768187648_3186.txt

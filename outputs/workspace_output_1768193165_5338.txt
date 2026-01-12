@@ -1,0 +1,23 @@
+=== INVESTIGATING ABILITY COUNT ISSUE ===
+Listing all ability definitions with line numbers...
+159:        Ability(
+175:        Ability(
+297:        Ability(
+313:        Ability(
+329:        Ability(
+345:        Ability(
+361:        Ability(
+377:        Ability(
+393:        Ability(
+409:        Ability(
+...
+1407:        Ability(
+1504:        Ability(
+1604:        Ability(
+1620:        Ability(
+1636:        Ability(
+1652:        Ability(
+1668:        Ability(
+1685:        Ability(
+1701:        Ability(
+1717:        Ability(

@@ -1,0 +1,50 @@
+                    cost = 75,
+                    xpGranted = 75,
+                    category = SkillCategory.OFFENSE,
+                    rarity = SkillRarity.COMMON,
+                    maxLevel = 5
+                ),
+                "iron_will" to Skill(
+                    id = "iron_will",
+                    name = "Iron Will",
+                    description = "Resistance to opponent's abilities",
+                    cost = 100,
+                    xpGranted = 100,
+                    category = SkillCategory.DEFENSE,
+                    rarity = SkillRarity.UNCOMMON,
+                    maxLevel = 5
+                ),
+                "strategic_mind" to Skill(
+                    id = "strategic_mind",
+                    name = "Strategic Mind",
+                    description = "Better prediction of opponent's moves",
+                    cost = 125,
+                    xpGranted = 125,
+                    category = SkillCategory.STRATEGY,
+                    rarity = SkillRarity.RARE,
+                    maxLevel = 5
+                ),
+                "resource_master" to Skill(
+                    id = "resource_master",
+                    name = "Resource Master",
+                    description = "More efficient point usage",
+                    cost = 150,
+                    xpGranted = 150,
+                    category = SkillCategory.RESOURCE,
+                    rarity = SkillRarity.EPIC,
+                    maxLevel = 3
+                ),
+                "fortune_favor" to Skill(
+                    id = "fortune_favor",
+                    name = "Fortune's Favor",
+                    description = "Lady Luck smiles upon you",
+                    cost = 200,
+                    xpGranted = 200,
+                    category = SkillCategory.LUCK,
+                    rarity = SkillRarity.LEGENDARY,
+                    maxLevel = 3
+                )
+            )
+        }
+    }
+}

@@ -1,0 +1,79 @@
+[master (root-commit) 1f89800] Initial commit: TRASH - Wild West Card Game with premium custom engines
+ Committer: root <root@172.16.67.238>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 65 files changed, 5789 insertions(+)
+ create mode 100755 .agent_hooks/run_all_hooks.py
+ create mode 100755 .agent_hooks/shutdown/00_track_processes_on_ports.py
+ create mode 100644 .agent_hooks/shutdown/_readme.txt
+ create mode 100644 .agent_hooks/startup/_readme.txt
+ create mode 100644 .gitignore
+ create mode 100644 README.md
+ create mode 100644 app/build.gradle.kts
+ create mode 100644 app/proguard-rules.pro
+ create mode 100644 app/src/main/AndroidManifest.xml
+ create mode 100644 app/src/main/java/com/trashapp/MainActivity.kt
+ create mode 100644 app/src/main/java/com/trashapp/TrashApplication.kt
+ create mode 100644 app/src/main/java/com/trashapp/gcms/GCMSController.kt
+ create mode 100644 app/src/main/java/com/trashapp/gcms/commands/GCMSCommand.kt
+ create mode 100644 app/src/main/java/com/trashapp/gcms/events/GCMSEvent.kt
+ create mode 100644 app/src/main/java/com/trashapp/gcms/handlers/CardCommandHandler.kt
+ create mode 100644 app/src/main/java/com/trashapp/gcms/handlers/CommandHandler.kt
+ create mode 100644 app/src/main/java/com/trashapp/gcms/handlers/MatchCommandHandler.kt
+ create mode 100644 app/src/main/java/com/trashapp/gcms/models/Card.kt
+ create mode 100644 app/src/main/java/com/trashapp/gcms/models/Deck.kt
+ create mode 100644 app/src/main/java/com/trashapp/gcms/models/GameState.kt
+ create mode 100644 app/src/main/java/com/trashapp/ui/components/CardComponent.kt
+ create mode 100644 app/src/main/java/com/trashapp/ui/components/WesternButton.kt
+ create mode 100644 app/src/main/java/com/trashapp/ui/navigation/TrashNavigation.kt
+ create mode 100644 app/src/main/java/com/trashapp/ui/screens/GameScreen.kt
+ create mode 100644 app/src/main/java/com/trashapp/ui/screens/MainMenuScreen.kt
+ create mode 100644 app/src/main/java/com/trashapp/ui/screens/SettingsScreen.kt
+ create mode 100644 app/src/main/java/com/trashapp/ui/theme/Color.kt
+ create mode 100644 app/src/main/java/com/trashapp/ui/theme/Theme.kt
+ create mode 100644 app/src/main/java/com/trashapp/ui/theme/Type.kt
+ create mode 100644 build.gradle.kts
+ create mode 100644 gradle.properties
+ create mode 100644 libgdx-core/build.gradle.kts
+ create mode 100644 libgdx-core/src/main/java/com/trashapp/libgdx/AndroidLauncher.kt
+ create mode 100644 libgdx-core/src/main/java/com/trashapp/libgdx/TrashGame.kt
+ create mode 100644 oboe-audio/build.gradle.kts
+ create mode 100644 oboe-audio/src/main/cpp/AudioEngine.cpp
+ create mode 100644 oboe-audio/src/main/cpp/AudioMixer.cpp
+ create mode 100644 oboe-audio/src/main/cpp/CMakeLists.txt
+ create mode 100644 oboe-audio/src/main/cpp/SpatialAudio.cpp
+ create mode 100644 oboe-audio/src/main/cpp/include/AudioEngine.h
+ create mode 100644 oboe-audio/src/main/cpp/include/AudioMixer.h
+ create mode 100644 oboe-audio/src/main/cpp/include/SpatialAudio.h
+ create mode 100644 oboe-audio/src/main/cpp/jni_bridge.cpp
+ create mode 100644 oboe-audio/src/main/java/com/trashapp/oboe/AudioEngine.java
+ create mode 100644 outputs/workspace_output_1768164590_1770.txt
+ create mode 100644 outputs/workspace_output_1768164693_5424.txt
+ create mode 100644 outputs/workspace_output_1768164695_2785.txt
+ create mode 100644 outputs/workspace_output_1768164697_4070.txt
+ create mode 100644 settings.gradle.kts
+ create mode 100644 skia-graphics/build.gradle.kts
+ create mode 100644 skia-graphics/src/main/cpp/CMakeLists.txt
+ create mode 100644 skia-graphics/src/main/cpp/CardRenderer.cpp
+ create mode 100644 skia-graphics/src/main/cpp/GraphicsEngine.cpp
+ create mode 100644 skia-graphics/src/main/cpp/ParticleEffect.cpp
+ create mode 100644 skia-graphics/src/main/cpp/Renderer.cpp
+ create mode 100644 skia-graphics/src/main/cpp/ShaderManager.cpp
+ create mode 100644 skia-graphics/src/main/cpp/include/CardRenderer.h
+ create mode 100644 skia-graphics/src/main/cpp/include/GraphicsEngine.h
+ create mode 100644 skia-graphics/src/main/cpp/include/ParticleEffect.h
+ create mode 100644 skia-graphics/src/main/cpp/include/Renderer.h
+ create mode 100644 skia-graphics/src/main/cpp/include/ShaderManager.h
+ create mode 100644 skia-graphics/src/main/cpp/jni_bridge.cpp
+ create mode 100644 skia-graphics/src/main/java/com/trashapp/skia/GraphicsEngine.java
+ create mode 100644 summarized_conversations/original_conversation_1768164586_3019.txt
+ create mode 100644 todo.md

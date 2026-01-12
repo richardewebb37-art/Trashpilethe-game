@@ -1,0 +1,24 @@
+package com.trashapp.gcms.progression
+
+/**
+ * Tier System for Progression
+ * Groups levels into thematic tiers with different difficulty scaling
+ */
+enum class Tier(
+    val displayName: String,
+    val levelRange: IntRange,
+    val description: String
+) {
+    LIFE("Life", 1..5, "Introductory abilities/skills; tutorials and starter moves"),
+    BEGINNER("Beginner", 6..20, "Basic abilities; start unlocking XP-driven progression"),
+    NOVICE("Novice", 21..50, "Intermediate abilities/skills; some combinations required"),
+    HARD("Hard", 51..80, "Stronger abilities; skill synergy required"),
+    EXPERT("Expert", 81..140, "Advanced abilities/skills; significant XP required"),
+    MASTER("Master", 141..200, "High-level abilities; challenging unlocks");
+
+    companion object {
+        fun getTierForLevel(level: Int): Tier {
+            return values().first { level in it.levelRange }
+        }
+    }
+}

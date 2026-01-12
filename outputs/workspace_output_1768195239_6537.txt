@@ -1,0 +1,8 @@
+dependencies {
+    // LibGDX dependencies
+    implementation("com.badlogicgames.gdx:gdx-backend-android:1.12.1")
+    implementation("com.badlogicgames.gdx:gdx:1.12.1")
+    
+    // Core Android
+    implementation("androidx.core:core-ktx:1.12.0")
+}

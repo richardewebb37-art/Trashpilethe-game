@@ -1,0 +1,28 @@
+[clean-push 144b2d1] Move all .md files to documents folder
+ Date: Mon Jan 12 11:25:53 2026 +0000
+ 25 files changed, 78 insertions(+), 45 deletions(-)
+ rename CHALLENGE_SYSTEM_INTEGRATION.md => documents/CHALLENGE_SYSTEM_INTEGRATION.md (100%)
+ rename CHALLENGE_SYSTEM_README.md => documents/CHALLENGE_SYSTEM_README.md (100%)
+ rename CHALLENGE_SYSTEM_SUMMARY.md => documents/CHALLENGE_SYSTEM_SUMMARY.md (100%)
+ rename DATABASE_INTEGRATION_GUIDE.md => documents/DATABASE_INTEGRATION_GUIDE.md (100%)
+ rename FINAL_COMPLETION_SUMMARY.md => documents/FINAL_COMPLETION_SUMMARY.md (100%)
+ rename FINAL_INTEGRATION_COMPLETE.md => documents/FINAL_INTEGRATION_COMPLETE.md (100%)
+ rename FINAL_VERIFICATION.md => documents/FINAL_VERIFICATION.md (100%)
+ rename INTEGRATION_COMPLETE.md => documents/INTEGRATION_COMPLETE.md (100%)
+ rename INTEGRATION_COMPLETE_SUMMARY.md => documents/INTEGRATION_COMPLETE_SUMMARY.md (100%)
+ rename INTEGRATION_GUIDE.md => documents/INTEGRATION_GUIDE.md (100%)
+ rename README.md => documents/README.md (100%)
+ rename SKILLS_ABILITIES_COMPLETE.md => documents/SKILLS_ABILITIES_COMPLETE.md (100%)
+ rename SKILLS_ABILITIES_INTEGRATION_SUMMARY.md => documents/SKILLS_ABILITIES_INTEGRATION_SUMMARY.md (100%)
+ rename TESTING_GUIDE.md => documents/TESTING_GUIDE.md (100%)
+ rename TIERED_INTEGRATION_SUMMARY.md => documents/TIERED_INTEGRATION_SUMMARY.md (100%)
+ rename TIERED_INTEGRATION_TODO.md => documents/TIERED_INTEGRATION_TODO.md (100%)
+ rename TIERED_PROGRESSION.md => documents/TIERED_PROGRESSION.md (100%)
+ rename TIERED_PROGRESSION_GUIDE.md => documents/TIERED_PROGRESSION_GUIDE.md (100%)
+ rename TROPHY_SYSTEM_INTEGRATION.md => documents/TROPHY_SYSTEM_INTEGRATION.md (100%)
+ rename TROPHY_SYSTEM_README.md => documents/TROPHY_SYSTEM_README.md (100%)
+ rename TROPHY_SYSTEM_SUMMARY.md => documents/TROPHY_SYSTEM_SUMMARY.md (100%)
+ rename UI_IMPLEMENTATION_SUMMARY.md => documents/UI_IMPLEMENTATION_SUMMARY.md (100%)
+ rename qa_inspection_report.md => documents/qa_inspection_report.md (100%)
+ create mode 100644 documents/todo.md
+ delete mode 100644 todo.md

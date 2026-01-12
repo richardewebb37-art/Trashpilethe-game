@@ -1,0 +1,27 @@
+=== FINDING THE ISSUE ===
+Checking for duplicate or extra ability definitions...
+296-    private val combatAbilities = listOf(
+606-    private val defenseAbilities = listOf(
+843-    private val supportAbilities = listOf(
+
+Checking section separators...
+44:    private val generalSkills = listOf(
+158:    private val generalAbilities = listOf(
+195:    private val combatSkills = listOf(
+296:    private val combatAbilities = listOf(
+494:    private val defenseSkills = listOf(
+606:    private val defenseAbilities = listOf(
+756:    private val supportSkills = listOf(
+843:    private val supportAbilities = listOf(
+928:    private val magicSkills = listOf(
+968:    private val magicAbilities = listOf(
+1085:    private val movementSkills = listOf(
+1112:    private val movementAbilities = listOf(
+1213:    private val precisionSkills = listOf(
+1290:    private val precisionAbilities = listOf(
+1327:    private val powerSkills = listOf(
+1342:    private val powerAbilities = listOf(
+1428:    private val mentalSkills = listOf(
+1503:    private val mentalAbilities = listOf(
+1524:    private val masterSkills = listOf(
+1603:    private val masterAbilities = listOf(

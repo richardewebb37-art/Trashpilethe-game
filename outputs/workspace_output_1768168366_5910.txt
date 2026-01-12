@@ -1,0 +1,182 @@
+#include &quot;AudioEngine.h&quot;
+#include <android/log.h>
+
+#define TAG &quot;AudioEngine&quot;
+#define LOGE(...) __android_log_print(ANDROID_LOG_ERROR, TAG, __VA_ARGS__)
+#define LOGI(...) __android_log_print(ANDROID_LOG_INFO, TAG, __VA_ARGS__)
+
+namespace trashapp {
+namespace audio {
+
+AudioEngine::AudioEngine() {
+    mMixer = std::make_unique<AudioMixer>();
+    mSpatialAudio = std::make_unique<SpatialAudio>();
+}
+
+AudioEngine::~AudioEngine() {
+    release();
+}
+
+AudioEngine&amp; AudioEngine::getInstance() {
+    static AudioEngine instance;
+    return instance;
+}
+
+void AudioEngine::initialize() {
+    if (mInitialized) {
+        LOGI(&quot;AudioEngine already initialized&quot;);
+        return;
+    }
+    
+    auto result = openStream();
+    if (result != oboe::Result::OK) {
+        LOGE(&quot;Failed to open audio stream: %s&quot;, oboe::convertToText(result));
+        return;
+    }
+    
+    mInitialized = true;
+    LOGI(&quot;AudioEngine initialized successfully&quot;);
+}
+
+oboe::Result AudioEngine::openStream() {
+    oboe::AudioStreamBuilder builder;
+    
+    builder.setDirection(oboe::Direction::Output);
+    builder.setPerformanceMode(oboe::PerformanceMode::LowLatency);
+    builder.setSharingMode(oboe::SharingMode::Exclusive);
+    builder.setFormat(oboe::AudioFormat::Float);
+    builder.setChannelCount(oboe::ChannelCount::Stereo);
+    builder.setSampleRate(48000);
+    builder.setCallback(this);
+    
+    return builder.openStream(mAudioStream);
+}
+
+void AudioEngine::closeStream() {
+    if (mAudioStream) {
+        mAudioStream->close();
+        mAudioStream.reset();
+    }
+}
+
+void AudioEngine::start() {
+    if (!mInitialized || mPlaying) {
+        return;
+    }
+    
+    auto result = mAudioStream->requestStart();
+    if (result == oboe::Result::OK) {
+        mPlaying = true;
+        LOGI(&quot;AudioEngine started&quot;);
+    } else {
+        LOGE(&quot;Failed to start audio stream: %s&quot;, oboe::convertToText(result));
+    }
+}
+
+void AudioEngine::stop() {
+    if (!mPlaying) {
+        return;
+    }
+    
+    auto result = mAudioStream->requestStop();
+    if (result == oboe::Result::OK) {
+        mPlaying = false;
+        LOGI(&quot;AudioEngine stopped&quot;);
+    }
+}
+
+void AudioEngine::release() {
+    stop();
+    closeStream();
+    mInitialized = false;
+}
+
+void AudioEngine::loadSound(const char* filename, int soundId) {
+    std::lock_guard<std::mutex> lock(mMutex);
+    // TODO: Load sound file and add to mixer
+    LOGI(&quot;Loading sound: %s (ID: %d)&quot;, filename, soundId);
+}
+
+void AudioEngine::playSound(int soundId, float volume, float pan) {
+    std::lock_guard<std::mutex> lock(mMutex);
+    float adjustedVolume = volume * mSfxVolume * mMasterVolume;
+    // TODO: Play sound through mixer
+    LOGI(&quot;Playing sound ID: %d, volume: %f&quot;, soundId, adjustedVolume);
+}
+
+void AudioEngine::stopSound(int soundId) {
+    std::lock_guard<std::mutex> lock(mMutex);
+    // TODO: Stop sound
+}
+
+void AudioEngine::setMasterVolume(float volume) {
+    std::lock_guard<std::mutex> lock(mMutex);
+    mMasterVolume = volume;
+}
+
+void AudioEngine::playMusic(const char* filename, bool loop) {
+    std::lock_guard<std::mutex> lock(mMutex);
+    // TODO: Play music stream
+    LOGI(&quot;Playing music: %s&quot;, filename);
+}
+
+void AudioEngine::stopMusic() {
+    std::lock_guard<std::mutex> lock(mMutex);
+    // TODO: Stop music
+}
+
+void AudioEngine::setMusicVolume(float volume) {
+    std::lock_guard<std::mutex> lock(mMutex);
+    mMusicVolume = volume;
+}
+
+void AudioEngine::setListenerPosition(float x, float y, float z) {
+    std::lock_guard<std::mutex> lock(mMutex);
+    mSpatialAudio->setListenerPosition(x, y, z);
+}
+
+void AudioEngine::playSound3D(int soundId, float x, float y, float z, float volume) {
+    std::lock_guard<std::mutex> lock(mMutex);
+    mSpatialAudio->playSound3D(soundId, x, y, z, volume);
+}
+
+void AudioEngine::enableReverb(bool enable) {
+    std::lock_guard<std::mutex> lock(mMutex);
+    // TODO: Enable/disable reverb effect
+}
+
+void AudioEngine::setReverbLevel(float level) {
+    std::lock_guard<std::mutex> lock(mMutex);
+    // TODO: Set reverb level
+}
+
+oboe::DataCallbackResult AudioEngine::onAudioReady(
+    oboe::AudioStream* audioStream,
+    void* audioData,
+    int32_t numFrames
+) {
+    auto* floatData = static_cast<float*>(audioData);
+    processAudio(floatData, numFrames);
+    return oboe::DataCallbackResult::Continue;
+}
+
+void AudioEngine::processAudio(float* audioData, int32_t numFrames) {
+    std::lock_guard<std::mutex> lock(mMutex);
+    
+    // Clear buffer
+    memset(audioData, 0, sizeof(float) * numFrames * 2); // Stereo
+    
+    // Mix audio from all sources
+    mMixer->mix(audioData, numFrames);
+    
+    // Apply spatial audio effects
+    mSpatialAudio->process(audioData, numFrames);
+    
+    // Apply master volume
+    for (int i = 0; i < numFrames * 2; i++) {
+        audioData[i] *= mMasterVolume;
+    }
+}
+
+} // namespace audio
+} // namespace trashapp

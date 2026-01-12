@@ -1,0 +1,100 @@
+package com.trashapp.ui.screens
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.trashapp.gcms.models.GCMSState
+import com.trashapp.ui.components.*
+import com.trashapp.ui.theme.AppColors
+
+/**
+ * Progression Screen
+ * Main screen for viewing and purchasing abilities and skills
+ */
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun ProgressionScreen(
+    onBackClick: () -> Unit,
+    gameState: GCMSState,
+    currentPlayerId: String,
+    onBuyAbility: (String) -> Unit,
+    onBuySkill: (String) -> Unit,
+    onUpgradeAbility: (String) -> Unit,
+    onLevelUpSkill: (String) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    val player = gameState.players.find { it.id == currentPlayerId }
+    val scrollState = rememberScrollState()
+    
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = {
+                    Text(
+                        text = "PROGRESSION",
+                        color = AppColors.Gold,
+                        fontWeight = FontWeight.Bold
+                    )
+                },
+                navigationIcon = {
+                    IconButton(onClick = onBackClick) {
+                        Icon(
+                            imageVector = Icons.Default.ArrowBack,
+                            contentDescription = "Back",
+                            tint = AppColors.Gold
+                        )
+                    }
+                },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = AppColors.MediumWood
+                )
+            )
+        }
+    ) { paddingValues ->
+        if (player != null) {
+            Column(
+                modifier = modifier
+                    .fillMaxSize()
+                    .padding(paddingValues)
+                    .background(AppColors.AgedWood)
+                    .verticalScroll(scrollState)
+                    .padding(16.dp)
+            ) {
+                // Player Stats Header
+                PlayerStatsHeader(
+                    player = player,
+                    modifier = Modifier.fillMaxWidth()
+                )
+                
+                Spacer(modifier = Modifier.height(24.dp))
+                
+                // Abilities Section
+                AbilitiesSection(
+                    player = player,
+                    onBuyAbility = onBuyAbility,
+                    onUpgradeAbility = onUpgradeAbility,
+                    modifier = Modifier.fillMaxWidth()
+                )
+                
+                Spacer(modifier = Modifier.height(24.dp))
+                
+                // Skills Section
+                SkillsSection(
+                    player = player,
+                    onBuySkill = onBuySkill,
+                    onLevelUpSkill = onLevelUpSkill,
+                    modifier = Modifier.fillMaxWidth()
+                )

@@ -1,0 +1,50 @@
+package com.trashapp.gcms.progression
+
+/**
+ * Progression Tree
+ * Manages the complete skill and ability tree structure
+ * Handles unlocking logic and tracks player progression
+ */
+data class ProgressionTree(
+    val abilities: Map<String, Ability> = emptyMap(),
+    val skills: Map<String, Skill> = emptyMap(),
+    val totalUnlockedAbilities: Int = 0,
+    val totalUnlockedSkills: Int = 0,
+    val totalAvailableXP: Int = 0  // Total XP available from all purchasable items
+) {
+    /**
+     * Get an ability by ID
+     */
+    fun getAbility(id: String): Ability? {
+        return abilities[id]
+    }
+    
+    /**
+     * Get a skill by ID
+     */
+    fun getSkill(id: String): Skill? {
+        return skills[id]
+    }
+    
+    /**
+     * Check if ability prerequisites are met
+     */
+    fun areAbilityPrerequisitesMet(abilityId: String): Boolean {
+        val ability = getAbility(abilityId) ?: return false
+        return ability.prerequisites.all { prerequisiteId ->
+            val prerequisite = getAbility(prerequisiteId)
+            prerequisite?.isPurchased == true
+        }
+    }
+    
+    /**
+     * Check if skill prerequisites are met
+     */
+    fun areSkillPrerequisitesMet(skillId: String): Boolean {
+        val skill = getSkill(skillId) ?: return false
+        return skill.prerequisites.all { prerequisiteId ->
+            val prerequisite = getSkill(prerequisiteId)
+            prerequisite?.isPurchased == true
+        }
+    }
+    

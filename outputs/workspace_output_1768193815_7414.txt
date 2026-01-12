@@ -1,0 +1,31 @@
+=== CHECKING COMMAND/EVENT STRUCTURES ===
+1. AbilityCommand sealed class...
+ * Commands related to using abilities in the game
+ */
+sealed class AbilityCommand : GCMSCommand() {
+    
+    /**
+     * Use an ability
+     */
+    data class UseAbilityCommand(
+2. AbilityEvent sealed class...
+ * Events related to ability usage and status changes
+ */
+sealed class AbilityEvent : GCMSEvent() {
+    
+    /**
+     * Ability was used successfully
+     */
+    data class AbilityUsedEvent(
+3. AbilityCommandHandler class...
+class AbilityCommandHandler(
+    private val eventEmitter: (AbilityEvent) -> Unit,
+    private val audioNotifier: (String) -> Unit = {}
+) {
+    
+    /**
+     * Handle an ability command
+     */
+    fun handleCommand(
+        command: AbilityCommand,
+        progressionTree: ProgressionTree,

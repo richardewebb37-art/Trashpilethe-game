@@ -1,0 +1,132 @@
+package com.trashapp.ui.screens
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.trashapp.ui.theme.AppColors
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun SettingsScreen(
+    onBackClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = {
+                    Text(
+                        text = "SETTINGS",
+                        color = AppColors.Gold,
+                        fontWeight = FontWeight.Bold
+                    )
+                },
+                navigationIcon = {
+                    IconButton(onClick = onBackClick) {
+                        Icon(
+                            imageVector = Icons.Default.ArrowBack,
+                            contentDescription = "Back",
+                            tint = AppColors.Gold
+                        )
+                    }
+                },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = AppColors.MediumWood
+                )
+            )
+        }
+    ) { paddingValues ->
+        Column(
+            modifier = modifier
+                .fillMaxSize()
+                .padding(paddingValues)
+                .background(AppColors.AgedWood)
+                .padding(16.dp)
+        ) {
+            Text(
+                text = "🔊 AUDIO",
+                color = AppColors.Gold,
+                fontSize = 18.sp,
+                fontWeight = FontWeight.Bold
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+            
+            // Volume sliders would go here
+            Text(
+                text = "Master Volume: 80%",
+                color = AppColors.Parchment,
+                fontSize = 14.sp
+            )
+            Text(
+                text = "Music Volume: 60%",
+                color = AppColors.Parchment,
+                fontSize = 14.sp
+            )
+            Text(
+                text = "Sound Effects: 90%",
+                color = AppColors.Parchment,
+                fontSize = 14.sp
+            )
+            
+            Spacer(modifier = Modifier.height(32.dp))
+            
+            Text(
+                text = "🎮 GAMEPLAY",
+                color = AppColors.Gold,
+                fontSize = 18.sp,
+                fontWeight = FontWeight.Bold
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+            
+            Text(
+                text = "Auto-End Turn: ON",
+                color = AppColors.Parchment,
+                fontSize = 14.sp
+            )
+            Text(
+                text = "Animation Speed: Normal",
+                color = AppColors.Parchment,
+                fontSize = 14.sp
+            )
+            
+            Spacer(modifier = Modifier.height(32.dp))
+            
+            Text(
+                text = "🎨 DISPLAY",
+                color = AppColors.Gold,
+                fontSize = 18.sp,
+                fontWeight = FontWeight.Bold
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+            
+            Text(
+                text = "Theme: Wild West",
+                color = AppColors.Parchment,
+                fontSize = 14.sp
+            )
+            Text(
+                text = "Card Style: Vintage",
+                color = AppColors.Parchment,
+                fontSize = 14.sp
+            )
+        }
+    }
+}

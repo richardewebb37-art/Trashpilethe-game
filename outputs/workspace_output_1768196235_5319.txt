@@ -1,0 +1,3 @@
+/workspace/app/src/main/java/com/trashapp/ui/challenge/ChallengeScreenV2.kt:                    onClick = { /* TODO: Handle advance to next level */ },
+/workspace/app/src/main/java/com/trashapp/ui/navigation/TrashNavigation.kt:                onMultiplayerClick = { /* TODO: Implement multiplayer screen */ },
+/workspace/app/src/main/java/com/trashapp/ui/navigation/TrashNavigation.kt:                onProfileClick = { /* TODO: Implement profile screen */ },

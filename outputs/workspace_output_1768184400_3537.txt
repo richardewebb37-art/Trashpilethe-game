@@ -1,0 +1,50 @@
+package com.trashapp.gcms.handlers
+
+import com.trashapp.audio.AudioAssetManager
+import com.trashapp.gcms.GCMSController
+import com.trashapp.gcms.commands.*
+import com.trashapp.gcms.events.*
+import com.trashapp.gcms.models.GCMSState
+import com.trashapp.gcms.models.Player
+import com.trashapp.gcms.progression.Tier
+import com.trashapp.gcms.trophy.TrophyGenerator
+import com.trashapp.gcms.trophy.TrophyManager
+import com.trashapp.gcms.trophy.TrophyRarity
+import kotlinx.coroutines.flow.first
+
+/**
+ * Handles all trophy-related commands
+ * 
+ * This handler manages:
+ * - Trophy awarding on level up
+ * - Trophy unlocking
+ * - Trophy eligibility checking
+ * - Trophy collection management
+ */
+class TrophyCommandHandlerV2(
+    private val audioManager: AudioAssetManager? = null
+) : CommandHandler {
+    
+    private val trophyManager = TrophyManager()
+    private var isInitialized = false
+    
+    override fun canHandle(command: GCMSCommand): Boolean {
+        return command is AwardTrophiesCommand ||
+               command is UnlockTrophyCommand ||
+               command is CheckTrophyEligibilityCommand ||
+               command is GetTrophiesByTierCommand ||
+               command is GetTrophiesByRarityCommand ||
+               command is ResetTrophiesCommand ||
+               command is GenerateTrophiesCommand ||
+               command is ClaimTrophyRewardsCommand
+    }
+    
+    override suspend fun handle(command: GCMSCommand, state: GCMSState): Result<List<GCMSEvent>> {
+        initialize()
+        
+        return when (command) {
+            is AwardTrophiesCommand -> handleAwardTrophies(command, state)
+            is UnlockTrophyCommand -> handleUnlockTrophy(command, state)
+            is CheckTrophyEligibilityCommand -> handleCheckEligibility(command, state)
+            is GetTrophiesByTierCommand -> handleGetTrophiesByTier(command, state)
+            is GetTrophiesByRarityCommand -> handleGetTrophiesByRarity(command, state)

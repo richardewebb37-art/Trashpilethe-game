@@ -1,0 +1,20 @@
+package com.trashapp.gcms
+
+import com.trashapp.audio.AudioAssetManager
+import com.trashapp.gcms.commands.GCMSCommand
+import com.trashapp.gcms.events.GCMSEvent
+import com.trashapp.gcms.handlers.CommandHandler
+import com.trashapp.gcms.models.GCMSState
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
+import javax.inject.Inject
+import javax.inject.Singleton
+
+@Singleton
+class GCMSController @Inject constructor(
+    private val handlers: List<CommandHandler>
+) {
+    private var audioManager: AudioAssetManager? = null
+    
+    private val _currentState = MutableSharedFlow<GCMSState>()

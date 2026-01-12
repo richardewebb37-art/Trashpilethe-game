@@ -1,0 +1,5 @@
+/workspace/app/build.gradle.kts
+/workspace/build.gradle.kts
+/workspace/libgdx-core/build.gradle.kts
+/workspace/oboe-audio/build.gradle.kts
+/workspace/skia-graphics/build.gradle.kts

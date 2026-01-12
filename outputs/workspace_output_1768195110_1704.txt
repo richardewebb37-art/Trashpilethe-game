@@ -1,0 +1,50 @@
+1,2d0
+< package com.trashapp.gcms.progression
+< 
+4,7c2,4
+<  * Progression Tree
+<  * Manages the complete skill and ability tree structure
+<  * Handles unlocking logic and tracks player progression
+<  * Enhanced to support complete 200-level progression with all skills/abilities
+---
+>  * Progression Tree with Tiered System
+>  * Manages all skills, abilities, and their unlock dependencies
+>  * Supports randomized content generation per tier
+9,14c6,9
+< data class ProgressionTree(
+<     val abilities: Map<String, Ability> = emptyMap(),
+<     val skills: Map<String, Skill> = emptyMap(),
+<     val totalUnlockedAbilities: Int = 0,
+<     val totalUnlockedSkills: Int = 0,
+<     val totalAvailableXP: Int = 0  // Total XP available from all purchasable items
+---
+> class ProgressionTree(
+>     private val pointsSystem: PointsSystem = PointsSystem(),
+>     private val xpSystem: XPSystem = XPSystem(),
+>     private val tierConfigManager: TierConfigurationManager = TierConfigurationManager()
+15a11,17
+>     private val skills: MutableMap<String, Skill> = mutableMapOf()
+>     private val abilities: MutableMap<String, Ability> = mutableMapOf()
+>     
+>     // Track unlocked skills and abilities
+>     private val unlockedSkillIds: MutableSet<String> = mutableSetOf()
+>     private val unlockedAbilityIds: MutableSet<String> = mutableSetOf()
+> 
+17c19
+<      * Create a new ProgressionTree with all skills and abilities loaded
+---
+>      * Generate randomized skill tree content for a tier
+19,34c21,23
+<     companion object {
+<         /**
+<          * Create a fresh progression tree with all skills/abilities
+<          */
+<         fun create(): ProgressionTree {
+<             val allSkills = SkillAbilityData.getAllSkills()
+<             val allAbilities = SkillAbilityData.getAllAbilities()
+<             
+<             val skillMap = allSkills.associateBy { it.id }
+<             val abilityMap = allAbilities.associateBy { it.id }
+<             
+<             return ProgressionTree(
+<                 abilities = abilityMap,

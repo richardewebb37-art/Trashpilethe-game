@@ -1,0 +1,50 @@
+package com.trashapp.gcms.handlers
+
+import com.trashapp.audio.AudioAssetManager
+import com.trashapp.gcms.commands.*
+import com.trashapp.gcms.events.*
+import com.trashapp.gcms.models.GCMSState
+import com.trashapp.gcms.challenge.*
+import kotlinx.coroutines.flow.first
+
+/**
+ * Handles all challenge-related commands
+ * 
+ * This handler manages:
+ * - Challenge generation for levels
+ * - Challenge progress tracking
+ * - Level advancement gating
+ * - Game action tracking
+ */
+class ChallengeCommandHandler(
+    private val audioManager: AudioAssetManager? = null
+) : CommandHandler {
+    
+    private val challengeManager = ChallengeManager()
+    private var isInitialized = false
+    
+    override fun canHandle(command: GCMSCommand): Boolean {
+        return command is GenerateChallengesCommand ||
+               command is UpdateChallengeProgressCommand ||
+               command is CompleteChallengeCommand ||
+               command is CheckLevelAdvancementCommand ||
+               command is SetCurrentLevelChallengesCommand ||
+               command is GetChallengesForLevelCommand ||
+               command is GetChallengeProgressCommand ||
+               command is ResetChallengesCommand ||
+               command is TrackGameActionCommand
+    }
+    
+    override suspend fun handle(command: GCMSCommand, state: GCMSState): Result<List<GCMSEvent>> {
+        initialize(state)
+        
+        return when (command) {
+            is GenerateChallengesCommand -> handleGenerateChallenges(command, state)
+            is UpdateChallengeProgressCommand -> handleUpdateProgress(command, state)
+            is CompleteChallengeCommand -> handleCompleteChallenge(command, state)
+            is CheckLevelAdvancementCommand -> handleCheckAdvancement(command, state)
+            is SetCurrentLevelChallengesCommand -> handleSetCurrentLevel(command, state)
+            is GetChallengesForLevelCommand -> handleGetChallenges(command, state)
+            is GetChallengeProgressCommand -> handleGetProgress(command, state)
+            is ResetChallengesCommand -> handleReset(state)
+            is TrackGameActionCommand -> handleTrackGameAction(command, state)

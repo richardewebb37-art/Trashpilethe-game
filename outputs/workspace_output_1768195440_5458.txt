@@ -1,0 +1,14 @@
+     * Calculate ability cost based on tier
+     */
+    fun calculateAbilityCost(tier: Tier): Int {
+        return pointsSystem.calculateAbilityCost(tier)
+    }
+
+    /**
+     * Calculate skill cost based on tier
+     */
+    fun calculateSkillCost(tier: Tier): Int {
+        return pointsSystem.calculateSkillCost(tier)
+    }
+    
+    companion object {

@@ -1,0 +1,50 @@
+package com.trashapp.gcms.handlers
+
+import com.trashapp.audio.AudioAssetManager
+import com.trashapp.gcms.commands.*
+import com.trashapp.gcms.events.*
+import com.trashapp.gcms.models.GCMSState
+import com.trashapp.gcms.progression.*
+
+/**
+ * Progression Command Handler
+ * Handles all progression-related commands (buying abilities/skills, leveling, etc.)
+ */
+class ProgressionCommandHandler(
+    private val audioManager: AudioAssetManager? = null
+) : CommandHandler {
+    
+    override fun canHandle(command: GCMSCommand): Boolean {
+        return command is BuyAbilityCommand ||
+               command is BuySkillCommand ||
+               command is UpgradeAbilityCommand ||
+               command is LevelUpSkillCommand ||
+               command is RefundAbilityCommand ||
+               command is RefundSkillCommand ||
+               command is AddPointsCommand ||
+               command is AddXPCommand ||
+               command is LoseXPCommand
+    }
+    
+    override suspend fun handle(command: GCMSCommand, state: GCMSState): Result<List<GCMSEvent>> {
+        return when (command) {
+            is BuyAbilityCommand -> handleBuyAbility(command, state)
+            is BuySkillCommand -> handleBuySkill(command, state)
+            is UpgradeAbilityCommand -> handleUpgradeAbility(command, state)
+            is LevelUpSkillCommand -> handleLevelUpSkill(command, state)
+            is RefundAbilityCommand -> handleRefundAbility(command, state)
+            is RefundSkillCommand -> handleRefundSkill(command, state)
+            is AddPointsCommand -> handleAddPoints(command, state)
+            is AddXPCommand -> handleAddXP(command, state)
+            is LoseXPCommand -> handleLoseXP(command, state)
+            else -> Result.failure(IllegalArgumentException("Unknown progression command"))
+        }
+    }
+    
+    private fun handleBuyAbility(cmd: BuyAbilityCommand, state: GCMSState): Result<List<GCMSEvent>> {
+        val player = state.players.find { it.id == cmd.playerId }
+            ?: return Result.failure(IllegalStateException("Player not found"))
+        
+        val pointSystem = player.pointSystem
+        val progressionTree = player.progressionTree
+        

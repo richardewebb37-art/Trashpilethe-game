@@ -1,0 +1,10 @@
+   55 /workspace/libgdx-core/src/main/java/com/ninja/trash/progression/Ability.kt
+  261 /workspace/libgdx-core/src/main/java/com/ninja/trash/progression/ContentGenerator.kt
+   70 /workspace/libgdx-core/src/main/java/com/ninja/trash/progression/PointsSystem.kt
+  458 /workspace/libgdx-core/src/main/java/com/ninja/trash/progression/ProgressionTree.kt
+   67 /workspace/libgdx-core/src/main/java/com/ninja/trash/progression/Skill.kt
+   17 /workspace/libgdx-core/src/main/java/com/ninja/trash/progression/Tier.kt
+   69 /workspace/libgdx-core/src/main/java/com/ninja/trash/progression/TierConfiguration.kt
+  119 /workspace/libgdx-core/src/main/java/com/ninja/trash/progression/XPSystem.kt
+  141 /workspace/libgdx-core/src/main/java/com/ninja/trash/progression/XPTableGenerator.kt
+ 1257 total

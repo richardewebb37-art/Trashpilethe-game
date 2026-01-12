@@ -1,0 +1,10 @@
+9a33b57 Remove conversation history files containing secrets
+aaa0743 Move all .md files to documents folder
+5193cf2 Fix all integration issues:
+8ba75c1 QA Inspection Complete: Skills & Abilities Integration verified and approved
+f023955 Complete skills and abilities integration: 107 items across 200 levels with full GCMS integration
+0b38481 Complete Trophy and Challenge systems: Database integration, testing, and documentation
+6c67745 Complete final integration: Content generation, tier-aware handlers, UI updates, and testing
+f80dc3a Complete progression system implementation
+21b9a06 Complete audio and graphics integration
+2cc3e78 Merge branch 'main' of https://github.com/richardewebb37-art/Trashpilethe-game

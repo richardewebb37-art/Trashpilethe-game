@@ -1,0 +1,5 @@
+app/src/main/java/com/trashapp/ui/screens/GameScreen.kt
+app/src/main/java/com/trashapp/ui/screens/MainMenuScreen.kt
+app/src/main/java/com/trashapp/ui/screens/ProgressionScreen.kt
+app/src/main/java/com/trashapp/ui/screens/ProgressionScreenV2.kt
+app/src/main/java/com/trashapp/ui/screens/SettingsScreen.kt

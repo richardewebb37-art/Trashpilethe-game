@@ -1,0 +1,44 @@
+=== CHECKING USAGE LIMIT IMPLEMENTATION ===
+1. Verifying canUse() method logic...
+    fun canUse(): Boolean {
+        if (!isPurchased) return false
+        if (!isActive) return false
+        
+        return when (usageLimitType) {
+            UsageLimitType.UNLIMITED -> true
+            UsageLimitType.PER_ROUND -> usesThisRound < usageLimit
+            UsageLimitType.PER_MATCH -> usesThisMatch < usageLimit
+        }
+    }
+    
+2. Verifying use() method...
+    fun use(): Ability {
+        return when (usageLimitType) {
+            UsageLimitType.UNLIMITED -> this
+            UsageLimitType.PER_ROUND -> copy(usesThisRound = usesThisRound + 1, usesThisMatch = usesThisMatch + 1)
+            UsageLimitType.PER_MATCH -> copy(usesThisMatch = usesThisMatch + 1)
+        }
+    }
+    
+    /**
+     * Reset round usage (called at start of each round)
+     */
+    fun resetRoundUsage(): Ability {
+        return copy(usesThisRound = 0)
+    }
+    
+    /**
+3. Checking reset methods...
+    fun resetRoundUsage(): Ability {
+        return copy(usesThisRound = 0)
+    }
+    
+    /**
+     * Reset match usage (called at start of each match)
+--
+    fun resetMatchUsage(): Ability {
+        return copy(usesThisRound = 0, usesThisMatch = 0)
+    }
+    
+    /**
+     * Get remaining uses

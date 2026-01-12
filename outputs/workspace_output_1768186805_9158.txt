@@ -1,0 +1,6 @@
+app/src/test/java/com/trashapp/challenge/ChallengeGeneratorTest.kt
+app/src/test/java/com/trashapp/challenge/ChallengeSystemTest.kt
+app/src/test/java/com/trashapp/database/DatabaseIntegrationTest.kt
+app/src/test/java/com/trashapp/integration/FullIntegrationTest.kt
+app/src/test/java/com/trashapp/trophy/TrophyGeneratorTest.kt
+app/src/test/java/com/trashapp/trophy/TrophySystemTest.kt

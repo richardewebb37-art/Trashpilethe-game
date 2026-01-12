@@ -1,0 +1,202 @@
+package com.trashapp.gcms.progression
+
+/**
+ * Point System
+ * Manages points, XP, and level progression with dynamic mechanics
+ * 
+ * Key Features:
+ * - Points earned from score and in-game actions
+ * - XP only accumulates after purchasing abilities/skills
+ * - Levels determined entirely by current XP
+ * - XP can increase or decrease, causing level fluctuation
+ * - Penalty multiplier for regaining lost levels
+ */
+data class PointSystem(
+    val availablePoints: Int = 0,           // Points available to spend
+    val totalXP: Int = 0,                   // Current total XP
+    val currentLevel: Int = 1,              // Current level based on XP
+    val maxUnlockedLevel: Int = 1,          // Highest level ever reached
+    val penaltyMultiplier: Float = 1.1f,    // XP penalty multiplier (10%)
+    val isProgressionActive: Boolean = false // Becomes true after first purchase
+) {
+    /**
+     * Calculate level from total XP
+     * Level 1 = 0 XP
+     * Level 2 = 100 XP
+     * Level 3 = 200 XP
+     * Level N = (N-1) * 100 XP
+     */
+    fun calculateLevel(xp: Int): Int {
+        if (xp < 0) return 1
+        return (xp / 100) + 1
+    }
+    
+    /**
+     * Calculate XP required for a specific level
+     * Level 1 = 0 XP
+     * Level 2 = 100 XP
+     * Level 20 = 1900 XP
+     */
+    fun calculateXPForLevel(level: Int): Int {
+        if (level <= 1) return 0
+        return (level - 1) * 100
+    }
+    
+    /**
+     * Calculate XP needed to reach next level
+     */
+    fun xpToNextLevel(): Int {
+        val nextLevel = currentLevel + 1
+        return calculateXPForLevel(nextLevel) - totalXP
+    }
+    
+    /**
+     * Calculate progress to next level (0.0 to 1.0)
+     */
+    fun progressToNextLevel(): Float {
+        val currentLevelXP = calculateXPForLevel(currentLevel)
+        val nextLevelXP = calculateXPForLevel(currentLevel + 1)
+        val range = nextLevelXP - currentLevelXP
+        if (range == 0) return 1.0f
+        return ((totalXP - currentLevelXP).toFloat() / range).coerceIn(0f, 1f)
+    }
+    
+    /**
+     * Add points (from score or actions)
+     * Points can always be earned, regardless of progression state
+     */
+    fun addPoints(amount: Int): PointSystem {
+        return copy(availablePoints = availablePoints + amount)
+    }
+    
+    /**
+     * Spend points to purchase ability/skill
+     * This activates progression and grants XP
+     */
+    fun spendPoints(amount: Int, xpGranted: Int): PointSystem {
+        if (availablePoints < amount) {
+            throw IllegalStateException("Not enough points")
+        }
+        
+        val newPoints = availablePoints - amount
+        val newTotalXP = totalXP + xpGranted
+        val newLevel = calculateLevel(newTotalXP)
+        val newMaxLevel = maxOf(maxUnlockedLevel, newLevel)
+        
+        return copy(
+            availablePoints = newPoints,
+            totalXP = newTotalXP,
+            currentLevel = newLevel,
+            maxUnlockedLevel = newMaxLevel,
+            isProgressionActive = true
+        )
+    }
+    
+    /**
+     * Add XP directly (e.g., from achievements, bonuses)
+     * Can be positive or negative
+     */
+    fun addXP(amount: Int): PointSystem {
+        if (!isProgressionActive) {
+            // XP doesn't accumulate until progression is active
+            return this
+        }
+        
+        val newTotalXP = (totalXP + amount).coerceAtLeast(0)
+        val newLevel = calculateLevel(newTotalXP)
+        val newMaxLevel = maxOf(maxUnlockedLevel, newLevel)
+        
+        return copy(
+            totalXP = newTotalXP,
+            currentLevel = newLevel,
+            maxUnlockedLevel = newMaxLevel
+        )
+    }
+    
+    /**
+     * Lose XP with penalty
+     * Used when losing abilities/skills or receiving penalties
+     * Returns the XP needed to regain the lost level
+     */
+    fun loseXP(amount: Int, wasLevelLost: Boolean): Pair<PointSystem, Int> {
+        if (!isProgressionActive) {
+            return Pair(this, 0)
+        }
+        
+        val newTotalXP = (totalXP - amount).coerceAtLeast(0)
+        val newLevel = calculateLevel(newTotalXP)
+        val levelLost = newLevel < currentLevel
+        
+        val newSystem = copy(
+            totalXP = newTotalXP,
+            currentLevel = newLevel
+        )
+        
+        // Calculate XP needed to regain lost level with penalty
+        val xpToRegain = if (levelLost) {
+            val penalty = (amount * penaltyMultiplier).toInt()
+            amount + penalty
+        } else {
+            0
+        }
+        
+        return Pair(newSystem, xpToRegain)
+    }
+    
+    /**
+     * Refund points (e.g., when selling ability/skill)
+     * Also removes XP and may lower level
+     */
+    fun refundPoints(amount: Int, xpToRemove: Int): Pair<PointSystem, Int> {
+        val newPoints = availablePoints + amount
+        val newTotalXP = (totalXP - xpToRemove).coerceAtLeast(0)
+        val newLevel = calculateLevel(newTotalXP)
+        
+        val newSystem = copy(
+            availablePoints = newPoints,
+            totalXP = newTotalXP,
+            currentLevel = newLevel
+        )
+        
+        // Calculate XP needed to regain lost level with penalty
+        val xpToRegain = if (newLevel < currentLevel) {
+            val penalty = (xpToRemove * penaltyMultiplier).toLong()
+            (xpToRemove + penalty).toInt()
+        } else {
+            0
+        }
+        
+        return Pair(newSystem, xpToRegain)
+    }
+    
+    /**
+     * Check if player can afford ability/skill
+     */
+    fun canAfford(cost: Int): Boolean {
+        return availablePoints >= cost
+    }
+    
+    /**
+     * Get dynamic level ceiling based on available abilities/skills
+     * This prevents hard level caps
+     */
+    fun calculateDynamicLevelCeiling(totalAvailableXP: Int): Int {
+        return calculateLevel(totalAvailableXP)
+    }
+    
+    companion object {
+        /**
+         * Create initial point system
+         */
+        fun createInitial(): PointSystem {
+            return PointSystem(
+                availablePoints = 100,  // Starting points
+                totalXP = 0,
+                currentLevel = 1,
+                maxUnlockedLevel = 1,
+                penaltyMultiplier = 1.1f,
+                isProgressionActive = false
+            )
+        }
+    }
+}

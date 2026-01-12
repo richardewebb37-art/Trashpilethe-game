@@ -1,0 +1,36 @@
+# TRASH Game - Progression System Implementation
+
+## Phase 1: Progression Data Models
+- [ ] Create PointSystem.kt - Points, XP, Level management
+- [ ] Create Ability.kt - Ability data structure
+- [ ] Create Skill.kt - Skill data structure
+- [ ] Create ProgressionTree.kt - Skill/Ability tree structure
+
+## Phase 2: Progression Logic
+- [ ] Implement XP → Level calculation
+- [ ] Implement Level → XP requirements
+- [ ] Implement Points → Ability/Skill purchase
+- [ ] Implement Ability/Skill → XP conversion
+- [ ] Implement XP loss penalty system
+- [ ] Implement dynamic level ceiling
+
+## Phase 3: GCMS Integration
+- [ ] Add ProgressionCommand.kt - BuyAbilityCommand, BuySkillCommand
+- [ ] Create ProgressionEventHandler.kt
+- [ ] Update GCMSState with progression data
+- [ ] Add progression events (LevelUpEvent, AbilityUnlockedEvent)
+
+## Phase 4: UI Components
+- [ ] Create ProgressionScreen.kt - Skill/Ability tree UI
+- [ ] Create LevelDisplay.kt - Show current level and XP
+- [ ] Create PointsDisplay.kt - Show available points
+- [ ] Create AbilityCard.kt - Individual ability/skill display
+- [ ] Create ProgressionBar.kt - XP progress visualization
+
+## Phase 5: Integration & Testing
+- [ ] Connect progression to score system
+- [ ] Test XP → Level calculation
+- [ ] Test level drop with XP loss
+- [ ] Test penalty multiplier system
+- [ ] Verify dynamic level ceiling works
+- [ ] Test skill tree unlocks

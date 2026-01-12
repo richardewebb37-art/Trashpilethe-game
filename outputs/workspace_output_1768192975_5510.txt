@@ -1,0 +1,2 @@
+=== CHECKING Tier.kt ===
+bash: line 3: kotlin: command not found

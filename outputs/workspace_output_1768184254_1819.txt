@@ -1,0 +1,88 @@
+🎮 Starting content generation for TRASH game...
+💾 Saved 64 skills to skills.json
+💾 Saved 1058 abilities to abilities.json
+
+📊 Content Statistics:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🏷️  Tier: Life (Levels 1-5)
+   Skills: 6
+   Abilities: 60
+   Avg Abilities per Skill: 10.0
+   Rarity Distribution:
+     Common: 38
+     Uncommon: 16
+     Rare: 6
+
+🏷️  Tier: Beginner (Levels 6-20)
+   Skills: 6
+   Abilities: 71
+   Avg Abilities per Skill: 11.8
+   Rarity Distribution:
+     Common: 31
+     Uncommon: 26
+     Rare: 10
+     Epic: 4
+
+🏷️  Tier: Novice (Levels 21-50)
+   Skills: 9
+   Abilities: 124
+   Avg Abilities per Skill: 13.8
+   Rarity Distribution:
+     Common: 28
+     Uncommon: 37
+     Rare: 35
+     Epic: 23
+     Legendary: 1
+
+🏷️  Tier: Hard (Levels 51-80)
+   Skills: 13
+   Abilities: 211
+   Avg Abilities per Skill: 16.2
+   Rarity Distribution:
+     Common: 39
+     Uncommon: 54
+     Rare: 66
+     Epic: 40
+     Legendary: 12
+
+🏷️  Tier: Expert (Levels 81-140)
+   Skills: 14
+   Abilities: 246
+   Avg Abilities per Skill: 17.6
+   Rarity Distribution:
+     Common: 18
+     Uncommon: 48
+     Rare: 82
+     Epic: 65
+     Legendary: 28
+     Mythic: 5
+
+🏷️  Tier: Master (Levels 141-200)
+   Skills: 16
+   Abilities: 346
+   Avg Abilities per Skill: 21.6
+   Rarity Distribution:
+     Common: 10
+     Uncommon: 45
+     Rare: 81
+     Epic: 130
+     Legendary: 65
+     Mythic: 15
+
+📈 Total Statistics:
+   Total Skills: 64
+   Total Abilities: 1058
+   Avg Abilities per Skill: 16.5
+
+💰 Cost Ranges:
+   Min: 0
+   Max: 799
+   Avg: 100.0
+
+⭐ XP Ranges:
+   Min: 12
+   Max: 15456
+   Avg: 1808.8
+✅ Content generation complete!
+📁 Files saved to: app/src/main/assets/progression

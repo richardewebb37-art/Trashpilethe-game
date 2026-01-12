@@ -1,0 +1,31 @@
+[main 21b9a06] Complete audio and graphics integration
+ 37 files changed, 2897 insertions(+), 145 deletions(-)
+ create mode 100644 INTEGRATION_GUIDE.md
+ create mode 100644 app/src/main/java/com/trashapp/audio/AudioAssetManager.java
+ create mode 100644 oboe-audio/src/main/cpp/SoundManager.cpp
+ create mode 100644 oboe-audio/src/main/cpp/include/SoundManager.h
+ create mode 100644 outputs/workspace_output_1768164703_7833.txt
+ create mode 100644 outputs/workspace_output_1768164706_1255.txt
+ create mode 100644 outputs/workspace_output_1768164708_8669.txt
+ create mode 100644 outputs/workspace_output_1768164710_3850.txt
+ create mode 100644 outputs/workspace_output_1768164713_4073.txt
+ create mode 100644 outputs/workspace_output_1768164716_6853.txt
+ create mode 100644 outputs/workspace_output_1768165778_3311.txt
+ create mode 100644 outputs/workspace_output_1768165783_9342.txt
+ create mode 100644 outputs/workspace_output_1768165785_2318.txt
+ create mode 100644 outputs/workspace_output_1768165788_4025.txt
+ create mode 100644 outputs/workspace_output_1768165792_3541.txt
+ create mode 100644 outputs/workspace_output_1768165795_9432.txt
+ create mode 100644 outputs/workspace_output_1768165799_4299.txt
+ create mode 100644 outputs/workspace_output_1768165807_9668.txt
+ create mode 100644 outputs/workspace_output_1768168366_5910.txt
+ create mode 100644 outputs/workspace_output_1768168369_8388.txt
+ create mode 100644 outputs/workspace_output_1768168526_5783.txt
+ create mode 100644 outputs/workspace_output_1768168642_4344.txt
+ create mode 100644 outputs/workspace_output_1768168775_9264.txt
+ create mode 100644 outputs/workspace_output_1768168920_6888.txt
+ create mode 100644 outputs/workspace_output_1768168975_9673.txt
+ create mode 100644 outputs/workspace_output_1768168999_8448.txt
+ create mode 100644 outputs/workspace_output_1768169035_2029.txt
+ create mode 100644 outputs/workspace_output_1768169038_9976.txt
+ create mode 100644 outputs/workspace_output_1768169128_3751.txt

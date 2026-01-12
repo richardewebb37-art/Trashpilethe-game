@@ -1,0 +1,15 @@
+=== DETAILED SYNTAX ANALYSIS ===
+Checking Skill.kt structure...
+1:package com.trashapp.gcms.progression
+9:data class Skill(
+126:enum class SkillCategory {
+142:enum class SkillRarity {
+
+Checking Ability.kt structure...
+1:package com.trashapp.gcms.progression
+9:data class Ability(
+187:enum class AbilityCategory {
+203:enum class AbilityRarity {
+214:enum class UsageLimitType {
+223:enum class EffectType {
+233:enum class EffectTarget {

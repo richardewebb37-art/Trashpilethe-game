@@ -1,0 +1,10 @@
+/workspace/libgdx-core/src/main/java/com/trashapp/libgdx/TrashGame.kt:import com.trashapp.oboe.AudioEngine
+/workspace/libgdx-core/src/main/java/com/trashapp/libgdx/TrashGame.kt:import com.trashapp.skia.GraphicsEngine
+/workspace/libgdx-core/src/main/java/com/trashapp/libgdx/TrashGame.kt:import com.trashapp.gcms.GCMSController
+/workspace/libgdx-core/src/main/java/com/trashapp/libgdx/TrashGame.kt:import com.trashapp.gcms.models.GCMSState
+/workspace/libgdx-core/src/main/java/com/trashapp/libgdx/AndroidLauncher.kt:import com.trashapp.TrashApplication
+/workspace/app/src/main/java/com/trashapp/MainActivity.kt:import com.trashapp.libgdx.AndroidLauncher
+/workspace/app/src/main/java/com/trashapp/database/TrashDatabase.kt:import com.trashapp.database.dao.ChallengeDao
+/workspace/app/src/main/java/com/trashapp/database/TrashDatabase.kt:import com.trashapp.database.dao.TrophyDao
+/workspace/app/src/main/java/com/trashapp/database/TrashDatabase.kt:import com.trashapp.database.entity.ChallengeEntity
+/workspace/app/src/main/java/com/trashapp/database/TrashDatabase.kt:import com.trashapp.database.entity.ChallengeProgressEntity

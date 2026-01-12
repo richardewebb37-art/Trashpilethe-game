@@ -1,0 +1,9 @@
+=== COUNTING ABILITIES BY SECTION ===
+General abilities:
+2
+Combat abilities:
+12
+Defense abilities:
+9
+Support abilities:
+5

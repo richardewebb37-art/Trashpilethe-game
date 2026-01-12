@@ -1,0 +1,129 @@
+package com.trashapp.gcms.progression
+
+/**
+ * Ability
+ * Represents a purchasable ability in the progression tree
+ * Abilities provide gameplay advantages and grant XP when purchased
+ * Now supports tiered progression system
+ */
+data class Ability(
+    val id: String,
+    val name: String,
+    val description: String,
+    val tier: Tier = Tier.LIFE,       // Progression tier
+    val cost: Int,                    // Points cost to purchase
+    val xpGranted: Int,               // XP granted when purchased
+    val icon: String? = null,         // Icon resource name
+    val category: AbilityCategory = AbilityCategory.COMBAT,
+    val rarity: AbilityRarity = AbilityRarity.COMMON,
+    val maxRank: Int = 1,             // Maximum upgrade rank
+    val currentRank: Int = 0,         // Current upgrade rank
+    val skillId: String? = null,      // Parent skill ID (if part of a skill)
+    val prerequisites: List<String> = emptyList(),  // Required ability IDs
+    val unlocks: List<String> = emptyList(),        // Abilities this unlocks
+    val isUnlocked: Boolean = false,  // Is this ability available for purchase?
+    val isPurchased: Boolean = false, // Has this ability been purchased?
+    val isActive: Boolean = false     // Is this ability currently active?
+) {
+    /**
+     * Check if ability can be upgraded
+     */
+    fun canUpgrade(): Boolean {
+        return isPurchased && currentRank < maxRank
+    }
+    
+    /**
+     * Check if ability can be purchased
+     */
+    fun canPurchase(availablePoints: Int): Boolean {
+        return isUnlocked && !isPurchased && availablePoints >= cost
+    }
+    
+    /**
+     * Calculate cost for next upgrade
+     */
+    fun upgradeCost(): Int {
+        return cost * (currentRank + 1)
+    }
+    
+    /**
+     * Calculate XP granted for upgrade
+     */
+    fun upgradeXP(): Int {
+        return xpGranted * (currentRank + 1)
+    }
+    
+    /**
+     * Purchase this ability
+     */
+    fun purchase(): Ability {
+        return copy(
+            currentRank = 1,
+            isPurchased = true,
+            isActive = true
+        )
+    }
+    
+    /**
+     * Upgrade this ability
+     */
+    fun upgrade(): Ability {
+        return copy(
+            currentRank = currentRank + 1
+        )
+    }
+    
+    /**
+     * Refund (sell) this ability
+     */
+    fun refund(): Ability {
+        return copy(
+            currentRank = 0,
+            isPurchased = false,
+            isActive = false
+        )
+    }
+    
+    /**
+     * Calculate XP multiplier based on rarity
+     */
+    fun getXPMultiplier(): Float {
+        return when (rarity) {
+            AbilityRarity.COMMON -> 1.0f
+            AbilityRarity.UNCOMMON -> 1.25f
+            AbilityRarity.RARE -> 1.5f
+            AbilityRarity.EPIC -> 2.0f
+            AbilityRarity.LEGENDARY -> 3.0f
+        }
+    }
+    
+    /**
+     * Get total XP granted including rank multipliers
+     */
+    fun getTotalXPGranted(): Int {
+        return (xpGranted * currentRank * getXPMultiplier()).toInt()
+    }
+}
+
+/**
+ * Ability Categories
+ */
+enum class AbilityCategory {
+    COMBAT,       // Combat-related abilities
+    DEFENSE,      // Defensive abilities
+    UTILITY,      // Utility abilities
+    LUCK,         // Luck-based abilities
+    STRATEGY,     // Strategy-based abilities
+    SPECIAL       // Special abilities
+}
+
+/**
+ * Ability Rarity
+ */
+enum class AbilityRarity {
+    COMMON,       // Common abilities
+    UNCOMMON,     // Uncommon abilities
+    RARE,         // Rare abilities
+    EPIC,         // Epic abilities
+    LEGENDARY     // Legendary abilities
+}

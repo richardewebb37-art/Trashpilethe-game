@@ -1,0 +1,13 @@
+=== COUNTING REMAINING ABILITIES ===
+Magic abilities:
+7
+Movement abilities:
+6
+Precision abilities:
+2
+Power abilities:
+5
+Mental abilities:
+1
+Master abilities:
+8

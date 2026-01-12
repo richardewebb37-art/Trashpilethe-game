@@ -1,0 +1,8 @@
+/workspace/oboe-audio/src/main/java/com/trashapp/oboe/AudioEngine.java
+/workspace/oboe-audio/src/main/cpp/AudioEngine.cpp
+/workspace/oboe-audio/src/main/cpp/SpatialAudio.cpp
+/workspace/oboe-audio/src/main/cpp/include/AudioEngine.h
+/workspace/oboe-audio/src/main/cpp/include/AudioMixer.h
+/workspace/oboe-audio/src/main/cpp/include/SpatialAudio.h
+/workspace/oboe-audio/src/main/cpp/AudioMixer.cpp
+/workspace/app/src/main/java/com/trashapp/audio/AudioAssetManager.java

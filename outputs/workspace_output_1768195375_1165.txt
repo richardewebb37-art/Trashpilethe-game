@@ -1,0 +1,20 @@
+package com.trashapp.gcms.progression
+
+import com.trashapp.gcms.progression.Tier
+import com.trashapp.gcms.progression.XPSystem
+
+/**
+ * Point System for progression
+ * Manages points, XP, and level progression with dynamic mechanics
+ * Integrated with tiered progression system (levels 1-200)
+ * 
+ * Key Features:
+ * - Points earned from score and in-game actions
+ * - XP only accumulates after purchasing abilities/skills
+ * - Levels determined entirely by current XP (1-200)
+ * - Dynamic XP scaling per level
+ * - XP can increase or decrease, causing level fluctuation
+ * - Penalty multiplier for regaining lost levels
+ * - Tier-based progression
+ */
+data class PointSystem(

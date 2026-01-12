@@ -1,0 +1,26 @@
+[main f80dc3a] Complete progression system implementation
+ 26 files changed, 2579 insertions(+), 34 deletions(-)
+ create mode 100644 app/src/main/java/com/trashapp/gcms/commands/ProgressionCommand.kt
+ create mode 100644 app/src/main/java/com/trashapp/gcms/events/ProgressionEvent.kt
+ create mode 100644 app/src/main/java/com/trashapp/gcms/handlers/ProgressionCommandHandler.kt
+ create mode 100644 app/src/main/java/com/trashapp/gcms/progression/Ability.kt
+ create mode 100644 app/src/main/java/com/trashapp/gcms/progression/PointSystem.kt
+ create mode 100644 app/src/main/java/com/trashapp/gcms/progression/ProgressionTree.kt
+ create mode 100644 app/src/main/java/com/trashapp/gcms/progression/Skill.kt
+ create mode 100644 app/src/main/java/com/trashapp/ui/components/AbilityCard.kt
+ create mode 100644 app/src/main/java/com/trashapp/ui/components/LevelDisplay.kt
+ create mode 100644 app/src/main/java/com/trashapp/ui/components/PointsDisplay.kt
+ create mode 100644 app/src/main/java/com/trashapp/ui/components/ProgressionBar.kt
+ create mode 100644 app/src/main/java/com/trashapp/ui/screens/ProgressionScreen.kt
+ create mode 100644 outputs/workspace_output_1768169136_1793.txt
+ create mode 100644 outputs/workspace_output_1768169138_3503.txt
+ create mode 100644 outputs/workspace_output_1768169142_8989.txt
+ create mode 100644 outputs/workspace_output_1768169144_6271.txt
+ create mode 100644 outputs/workspace_output_1768169147_4675.txt
+ create mode 100644 outputs/workspace_output_1768171043_321.txt
+ create mode 100644 outputs/workspace_output_1768171049_1303.txt
+ create mode 100644 outputs/workspace_output_1768171056_7269.txt
+ create mode 100644 outputs/workspace_output_1768171398_2771.txt
+ create mode 100644 outputs/workspace_output_1768171470_4933.txt
+ create mode 100644 outputs/workspace_output_1768171927_7641.txt
+ create mode 100644 outputs/workspace_output_1768171942_6464.txt

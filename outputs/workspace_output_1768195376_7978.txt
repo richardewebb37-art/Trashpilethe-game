@@ -1,0 +1,11 @@
+    val maxUnlockedLevel: Int = 1,          // Highest level ever reached
+    val penaltyMultiplier: Float = 1.1f,    // XP penalty multiplier (10%)
+    val isProgressionActive: Boolean = false // Becomes true after first purchase
+) {
+    private val xpSystem = XPSystem()
+    private val pointsSystem = PointsSystem()
+
+    /**
+     * Get current tier based on level
+     */
+    val currentTier: Tier

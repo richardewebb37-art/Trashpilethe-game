@@ -1,0 +1,1 @@
+head: cannot open 'app/src/main/java/com/trashapp/ui/screens/TrophyScreen.kt' for reading: No such file or directory

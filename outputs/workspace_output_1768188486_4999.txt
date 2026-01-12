@@ -1,0 +1,100 @@
+                    rarity = SkillRarity.COMMON,
+                    maxLevel = 5
+                ),
+                "iron_will" to Skill(
+                    id = "iron_will",
+                    name = "Iron Will",
+                    description = "Resistance to opponent's abilities",
+                    cost = 100,
+                    xpGranted = 100,
+                    category = SkillCategory.DEFENSE,
+                    rarity = SkillRarity.UNCOMMON,
+                    maxLevel = 5
+                ),
+                "strategic_mind" to Skill(
+                    id = "strategic_mind",
+                    name = "Strategic Mind",
+                    description = "Better prediction of opponent's moves",
+                    cost = 125,
+                    xpGranted = 125,
+                    category = SkillCategory.STRATEGY,
+                    rarity = SkillRarity.RARE,
+                    maxLevel = 5
+                ),
+                "resource_master" to Skill(
+                    id = "resource_master",
+                    name = "Resource Master",
+                    description = "More efficient point usage",
+                    cost = 150,
+                    xpGranted = 150,
+                    category = SkillCategory.RESOURCE,
+                    rarity = SkillRarity.EPIC,
+                    maxLevel = 3
+                ),
+                "fortune_favor" to Skill(
+                    id = "fortune_favor",
+                    name = "Fortune's Favor",
+                    description = "Lady Luck smiles upon you",
+                    cost = 200,
+                    xpGranted = 200,
+                    category = SkillCategory.LUCK,
+                    rarity = SkillRarity.LEGENDARY,
+                    maxLevel = 3
+                )
+            )
+        }
+    }
+
+    /**
+     * Get skills for a specific tier
+     */
+    fun getSkillsForTier(tier: Tier): List<Skill> {
+        return skills.values.filter { it.tier == tier }
+    }
+
+    /**
+     * Get abilities for a specific tier
+     */
+    fun getAbilitiesForTier(tier: Tier): List<Ability> {
+        return abilities.values.filter { it.tier == tier }
+    }
+
+    /**
+     * Get abilities belonging to a specific skill
+     */
+    fun getAbilitiesForSkill(skillId: String): List<Ability> {
+        return abilities.values.filter { it.skillId == skillId }
+    }
+
+    /**
+     * Get total XP from all unlocked skills and abilities
+     */
+    fun calculateTotalXP(): Int {
+        var totalXP = 0
+
+        skills.values.filter { it.isPurchased }.forEach { skill ->
+            totalXP += skill.xpGranted * skill.currentLevel
+        }
+
+        abilities.values.filter { it.isPurchased }.forEach { ability ->
+            totalXP += ability.getTotalXPGranted()
+        }
+
+        return totalXP
+    }
+
+    /**
+     * Get current level based on total XP
+     */
+    fun getCurrentLevel(): Int {
+        val xpSystem = XPSystem()
+        return xpSystem.calculateLevelFromXP(calculateTotalXP())
+    }
+
+    /**
+     * Get current tier based on level
+     */
+    fun getCurrentTier(): Tier {
+        return Tier.getTierForLevel(getCurrentLevel())
+    }
+}

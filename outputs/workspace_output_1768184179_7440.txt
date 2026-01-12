@@ -1,0 +1,2 @@
+bash: line 3: kotlinc: command not found
+Compilation failed, trying alternative approach

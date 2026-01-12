@@ -1,0 +1,7 @@
+app/src/main/java/com/trashapp/database/TrashDatabase.kt
+app/src/main/java/com/trashapp/database/dao/ChallengeDao.kt
+app/src/main/java/com/trashapp/database/dao/TrophyDao.kt
+app/src/main/java/com/trashapp/database/entity/ChallengeEntity.kt
+app/src/main/java/com/trashapp/database/entity/TrophyEntity.kt
+app/src/main/java/com/trashapp/database/repository/ChallengeRepository.kt
+app/src/main/java/com/trashapp/database/repository/TrophyRepository.kt

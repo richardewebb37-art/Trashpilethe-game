@@ -1,0 +1,8 @@
+/workspace/app/src/main/java/com/trashapp/gcms/progression/Ability.kt
+/workspace/app/src/main/java/com/trashapp/gcms/progression/ContentGenerator.kt
+/workspace/app/src/main/java/com/trashapp/gcms/progression/PointSystem.kt
+/workspace/app/src/main/java/com/trashapp/gcms/progression/ProgressionTree.kt
+/workspace/app/src/main/java/com/trashapp/gcms/progression/Skill.kt
+/workspace/app/src/main/java/com/trashapp/gcms/progression/Tier.kt
+/workspace/app/src/main/java/com/trashapp/gcms/progression/TierConfiguration.kt
+/workspace/app/src/main/java/com/trashapp/gcms/progression/XPSystem.kt

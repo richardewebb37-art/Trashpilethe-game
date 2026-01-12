@@ -1,0 +1,30 @@
+[
+  {
+    "id": "skill_life_0",
+    "name": "Savage Light",
+    "description": "This skill enhances the defensive capabilities with Wild West power.",
+    "tier": "Life",
+    "category": "Strategy",
+    "rarity": "Common",
+    "baseCost": 9,
+    "xpGranted": 40,
+    "maxLevel": 16,
+    "abilities": [
+      "ability_life_0",
+      "ability_life_1",
+      "ability_life_2",
+      "ability_life_3",
+      "ability_life_4",
+      "ability_life_5",
+      "ability_life_6",
+      "ability_life_7"
+    ]
+  },
+  {
+    "id": "skill_life_1",
+    "name": "Brave Grace",
+    "description": "This skill boosts your resources with Wild West power.",
+    "tier": "Life",
+    "category": "Resource",
+    "rarity": "Rare",
+    "baseCost": 17,

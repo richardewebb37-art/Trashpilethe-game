@@ -1,0 +1,10 @@
+                    cost = 200,
+                    xpGranted = 200,
+                    category = SkillCategory.LUCK,
+                    rarity = SkillRarity.LEGENDARY,
+                    maxLevel = 3
+                )
+            )
+        }
+    }
+}

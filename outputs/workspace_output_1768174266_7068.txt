@@ -1,0 +1,13 @@
+/workspace/app/src/main/java/com/trashapp/gcms/progression/Ability.kt
+/workspace/app/src/main/java/com/trashapp/gcms/progression/PointSystem.kt
+/workspace/app/src/main/java/com/trashapp/gcms/progression/ProgressionTree.kt
+/workspace/app/src/main/java/com/trashapp/gcms/progression/Skill.kt
+/workspace/libgdx-core/src/main/java/com/ninja/trash/progression/Ability.kt
+/workspace/libgdx-core/src/main/java/com/ninja/trash/progression/ContentGenerator.kt
+/workspace/libgdx-core/src/main/java/com/ninja/trash/progression/PointsSystem.kt
+/workspace/libgdx-core/src/main/java/com/ninja/trash/progression/ProgressionTree.kt
+/workspace/libgdx-core/src/main/java/com/ninja/trash/progression/Skill.kt
+/workspace/libgdx-core/src/main/java/com/ninja/trash/progression/Tier.kt
+/workspace/libgdx-core/src/main/java/com/ninja/trash/progression/TierConfiguration.kt
+/workspace/libgdx-core/src/main/java/com/ninja/trash/progression/XPSystem.kt
+/workspace/libgdx-core/src/main/java/com/ninja/trash/progression/XPTableGenerator.kt

@@ -1,0 +1,20 @@
+package com.trashapp.gcms.progression
+
+/**
+ * Progression Tree
+ * Manages the complete skill and ability tree structure
+ * Handles unlocking logic and tracks player progression
+ * Enhanced to support complete 200-level progression with all skills/abilities
+ */
+data class ProgressionTree(
+    val abilities: Map<String, Ability> = emptyMap(),
+    val skills: Map<String, Skill> = emptyMap(),
+    val totalUnlockedAbilities: Int = 0,
+    val totalUnlockedSkills: Int = 0,
+    val totalAvailableXP: Int = 0  // Total XP available from all purchasable items
+) {
+    /**
+     * Create a new ProgressionTree with all skills and abilities loaded
+     */
+    companion object {
+        /**

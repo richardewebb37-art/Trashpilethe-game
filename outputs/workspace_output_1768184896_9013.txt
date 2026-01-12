@@ -1,0 +1,123 @@
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   CHALLENGE_SYSTEM_INTEGRATION.md
+	new file:   CHALLENGE_SYSTEM_README.md
+	new file:   CHALLENGE_SYSTEM_SUMMARY.md
+	new file:   FINAL_INTEGRATION_COMPLETE.md
+	new file:   FINAL_VERIFICATION.md
+	new file:   INTEGRATION_COMPLETE.md
+	new file:   TIERED_INTEGRATION_SUMMARY.md
+	new file:   TIERED_INTEGRATION_TODO.md
+	new file:   TIERED_PROGRESSION.md
+	new file:   TIERED_PROGRESSION_GUIDE.md
+	new file:   TROPHY_SYSTEM_INTEGRATION.md
+	new file:   TROPHY_SYSTEM_README.md
+	new file:   TROPHY_SYSTEM_SUMMARY.md
+	new file:   UI_IMPLEMENTATION_SUMMARY.md
+	new file:   app/src/main/assets/progression/abilities.json
+	new file:   app/src/main/assets/progression/skills.json
+	new file:   app/src/main/java/com/trashapp/gcms/challenge/Challenge.kt
+	new file:   app/src/main/java/com/trashapp/gcms/challenge/ChallengeGenerator.kt
+	new file:   app/src/main/java/com/trashapp/gcms/challenge/ChallengeManager.kt
+	new file:   app/src/main/java/com/trashapp/gcms/challenge/ChallengeSystem.kt
+	new file:   app/src/main/java/com/trashapp/gcms/commands/ChallengeCommand.kt
+	new file:   app/src/main/java/com/trashapp/gcms/commands/TrophyCommand.kt
+	new file:   app/src/main/java/com/trashapp/gcms/events/ChallengeEvent.kt
+	modified:   app/src/main/java/com/trashapp/gcms/events/ProgressionEvent.kt
+	new file:   app/src/main/java/com/trashapp/gcms/events/TrophyEvent.kt
+	new file:   app/src/main/java/com/trashapp/gcms/handlers/ChallengeCommandHandler.kt
+	new file:   app/src/main/java/com/trashapp/gcms/handlers/ProgressionCommandHandlerV2.kt
+	new file:   app/src/main/java/com/trashapp/gcms/handlers/TrophyCommandHandler.kt
+	new file:   app/src/main/java/com/trashapp/gcms/handlers/TrophyCommandHandlerV2.kt
+	modified:   app/src/main/java/com/trashapp/gcms/progression/Ability.kt
+	new file:   app/src/main/java/com/trashapp/gcms/progression/ContentGenerator.kt
+	new file:   app/src/main/java/com/trashapp/gcms/progression/ContentLoader.kt
+	new file:   app/src/main/java/com/trashapp/gcms/progression/GenerateContent.kt
+	new file:   app/src/main/java/com/trashapp/gcms/progression/MainGenerator.kt
+	modified:   app/src/main/java/com/trashapp/gcms/progression/PointSystem.kt
+	modified:   app/src/main/java/com/trashapp/gcms/progression/ProgressionTree.kt
+	modified:   app/src/main/java/com/trashapp/gcms/progression/Skill.kt
+	new file:   app/src/main/java/com/trashapp/gcms/progression/Tier.kt
+	new file:   app/src/main/java/com/trashapp/gcms/progression/TierConfiguration.kt
+	new file:   app/src/main/java/com/trashapp/gcms/progression/XPSystem.kt
+	new file:   app/src/main/java/com/trashapp/gcms/trophy/Trophy.kt
+	new file:   app/src/main/java/com/trashapp/gcms/trophy/TrophyGenerator.kt
+	new file:   app/src/main/java/com/trashapp/gcms/trophy/TrophyManager.kt
+	new file:   app/src/main/java/com/trashapp/gcms/trophy/TrophySystem.kt
+	new file:   app/src/main/java/com/trashapp/ui/challenge/ChallengeCard.kt
+	new file:   app/src/main/java/com/trashapp/ui/challenge/ChallengeNotification.kt
+	new file:   app/src/main/java/com/trashapp/ui/challenge/ChallengeScreen.kt
+	new file:   app/src/main/java/com/trashapp/ui/challenge/ChallengeScreenV2.kt
+	new file:   app/src/main/java/com/trashapp/ui/screens/ProgressionScreenV2.kt
+	new file:   app/src/main/java/com/trashapp/ui/trophy/TrophyCard.kt
+	new file:   app/src/main/java/com/trashapp/ui/trophy/TrophyNotification.kt
+	new file:   app/src/main/java/com/trashapp/ui/trophy/TrophyScreen.kt
+	new file:   app/src/main/java/com/trashapp/ui/trophy/TrophyScreenV2.kt
+	new file:   app/src/test/java/com/trashapp/integration/FullIntegrationTest.kt
+	new file:   libgdx-core/src/main/java/com/ninja/trash/progression/Ability.kt
+	new file:   libgdx-core/src/main/java/com/ninja/trash/progression/ContentGenerator.kt
+	new file:   libgdx-core/src/main/java/com/ninja/trash/progression/PointsSystem.kt
+	new file:   libgdx-core/src/main/java/com/ninja/trash/progression/ProgressionTree.kt
+	new file:   libgdx-core/src/main/java/com/ninja/trash/progression/Skill.kt
+	new file:   libgdx-core/src/main/java/com/ninja/trash/progression/Tier.kt
+	new file:   libgdx-core/src/main/java/com/ninja/trash/progression/TierConfiguration.kt
+	new file:   libgdx-core/src/main/java/com/ninja/trash/progression/XPSystem.kt
+	new file:   libgdx-core/src/main/java/com/ninja/trash/progression/XPTableGenerator.kt
+	new file:   outputs/workspace_output_1768172002_5622.txt
+	new file:   outputs/workspace_output_1768172006_7931.txt
+	new file:   outputs/workspace_output_1768172021_3670.txt
+	new file:   outputs/workspace_output_1768172032_9286.txt
+	new file:   outputs/workspace_output_1768173293_7553.txt
+	new file:   outputs/workspace_output_1768173307_6610.txt
+	new file:   outputs/workspace_output_1768174266_7068.txt
+	new file:   outputs/workspace_output_1768174271_6031.txt
+	new file:   outputs/workspace_output_1768174272_6393.txt
+	new file:   outputs/workspace_output_1768174276_7665.txt
+	new file:   outputs/workspace_output_1768174895_5701.txt
+	new file:   outputs/workspace_output_1768174909_5869.txt
+	new file:   outputs/workspace_output_1768174917_8470.txt
+	new file:   outputs/workspace_output_1768174934_3747.txt
+	new file:   outputs/workspace_output_1768175068_9387.txt
+	new file:   outputs/workspace_output_1768175080_5476.txt
+	new file:   outputs/workspace_output_1768175087_1028.txt
+	new file:   outputs/workspace_output_1768175094_6681.txt
+	new file:   outputs/workspace_output_1768175098_7768.txt
+	new file:   outputs/workspace_output_1768175102_3144.txt
+	new file:   outputs/workspace_output_1768175120_4328.txt
+	new file:   outputs/workspace_output_1768175125_6548.txt
+	new file:   outputs/workspace_output_1768175711_6107.txt
+	new file:   outputs/workspace_output_1768175765_7271.txt
+	new file:   outputs/workspace_output_1768175927_2595.txt
+	new file:   outputs/workspace_output_1768175935_5517.txt
+	new file:   outputs/workspace_output_1768175941_6457.txt
+	new file:   outputs/workspace_output_1768176124_1744.txt
+	new file:   outputs/workspace_output_1768176178_7271.txt
+	new file:   outputs/workspace_output_1768178405_3638.txt
+	new file:   outputs/workspace_output_1768178550_2299.txt
+	new file:   outputs/workspace_output_1768178908_1299.txt
+	new file:   outputs/workspace_output_1768184179_7440.txt
+	new file:   outputs/workspace_output_1768184254_1819.txt
+	new file:   outputs/workspace_output_1768184256_3424.txt
+	new file:   outputs/workspace_output_1768184259_7209.txt
+	new file:   outputs/workspace_output_1768184301_9741.txt
+	new file:   outputs/workspace_output_1768184303_7862.txt
+	new file:   outputs/workspace_output_1768184400_3537.txt
+	new file:   outputs/workspace_output_1768184405_6307.txt
+	new file:   outputs/workspace_output_1768184424_8159.txt
+	new file:   outputs/workspace_output_1768184550_3057.txt
+	new file:   outputs/workspace_output_1768184553_1080.txt
+	new file:   outputs/workspace_output_1768184559_4500.txt
+	new file:   outputs/workspace_output_1768184894_6870.txt
+	new file:   summarized_conversations/original_conversation_1768172728_3370.txt
+	new file:   summarized_conversations/original_conversation_1768177951_4249.txt
+	new file:   summarized_conversations/original_conversation_1768184102_5864.txt
+	modified:   todo.md
+	new file:   tools/generate_content.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	outputs/workspace_output_1768184896_9013.txt
+

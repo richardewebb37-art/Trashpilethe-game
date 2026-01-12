@@ -1,0 +1,30 @@
+package com.trashapp.libgdx
+
+import com.badlogic.gdx.ApplicationAdapter
+import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.graphics.GL20
+import com.trashapp.oboe.AudioEngine
+import com.trashapp.skia.GraphicsEngine
+import com.trashapp.gcms.GCMSController
+import com.trashapp.gcms.models.GCMSState
+import kotlinx.coroutines.*
+import javax.inject.Inject
+import javax.inject.Singleton
+
+@Singleton
+class TrashGame @Inject constructor(
+    private val gcmsController: GCMSController
+) : ApplicationAdapter() {
+    
+    private val audioEngine = AudioEngine.getInstance()
+    private val graphicsEngine = GraphicsEngine.getInstance()
+    
+    private var gameLoopScope: CoroutineScope? = null
+    private var gameState: GCMSState? = null
+    private var lastFrameTime = 0f
+    
+    override fun create() {
+        audioEngine.initialize()
+        audioEngine.start()
+        
+        graphicsEngine.initialize(Gdx.graphics.width, Gdx.graphics.height)
